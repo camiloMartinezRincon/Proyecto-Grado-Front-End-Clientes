@@ -1,0 +1,46 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button menu="first">
+        <ion-icon name="grid"></ion-icon>
+      </ion-menu-button>
+    </ion-buttons>
+    <ion-title> Mis Entregas Programadas </ion-title>
+  </ion-toolbar>
+
+  <ion-toolbar color="primary">
+    <ion-searchbar placeholder="Nombre del Proyecto" (ionChange)="onSearchChange($event)"></ion-searchbar>
+  </ion-toolbar>
+</ion-header>
+
+<ion-fab vertical="bottom" horizontal="end" slot="fixed">
+  <ion-fab-button>
+    <ion-icon name="add"></ion-icon>
+  </ion-fab-button>
+  <ion-fab-list side="top">
+    <ion-fab-button [routerLink]="['/nueva-entrega']" data-desc="Programar Nueva Entrega" color="add">
+      <ion-icon name="add-circle"></ion-icon>
+    </ion-fab-button>
+  </ion-fab-list>
+</ion-fab>
+
+<ion-content class="ion-padding">
+  <ion-list>
+    <ion-item *ngFor="let entrega of entregas |  filtroEntregas:filtrarEntregas">
+      <ion-card>
+        <ion-card-header>
+          <ion-card-title class="titulo-card" color="primary"> {{ entrega.clientFullName}} </ion-card-title>
+          <ion-card-subtitle> {{ entrega.clientEmail }} </ion-card-subtitle>
+          <ion-card-subtitle> Nombre del proyecto: {{ entrega.projectName }} </ion-card-subtitle>
+          <ion-card-subtitle> Fecha de entrega: {{ entrega.deliveryDate }} </ion-card-subtitle>
+          <ion-card-subtitle> Hora de entrega: {{ entrega.deliveryHour }} </ion-card-subtitle>
+          <ion-card-subtitle> Lugar de la entrega: {{ entrega.deliveryPlace }} </ion-card-subtitle>
+        </ion-card-header>
+        <ion-button (click)="btnDelete(entrega)" expand="block" color="danger" fill="clear">
+          Borrar
+          <ion-icon slot="start" name="trash-outline"></ion-icon>
+        </ion-button>
+      </ion-card>
+    </ion-item>
+  </ion-list>
+</ion-content>
