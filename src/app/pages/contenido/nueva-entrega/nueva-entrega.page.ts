@@ -56,6 +56,7 @@ export class NuevaEntregaPage implements OnInit {
           showConfirmButton: true,
           confirmButtonText: 'Ok',
         }).then((result) => {
+          this.ngOnInit();
           this.router.navigate(['/mis-requerimientos']);
         });
       }else{

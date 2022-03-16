@@ -87,4 +87,17 @@ getDeliveries() {
 deleteProjectDelivery(id: number): Observable<void> {
   return this.http.delete<any>(`${this.endPoint}/project/delivery/delete/`+id);
 }
+
+//Crear Cotizacion
+crearCotizacion(cotizacion: any): Observable<any> {
+  return this.http.post<any>(`${this.endPoint}/new/cotizacion`, cotizacion);
+}
+//Get cotizacion
+getCotizaciones() {
+  return this.http.get<any>(this.endPoint + '/cotizacion/info', this.httpOptions);
+}
+//Delete Cotizacion
+deleteCotizacion(id: number):Observable<void> {
+  return this.http.delete<any>(`${this.endPoint}/cotizacion/delete/`+id);
+}
 }

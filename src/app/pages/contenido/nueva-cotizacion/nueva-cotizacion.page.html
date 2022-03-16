@@ -1,0 +1,71 @@
+<app-header-menu title="Nueva Cotizacion"></app-header-menu>
+
+<ion-content class="ion-padding">
+  <form [formGroup]="nuevaCotizacionForm">
+    <ion-list>
+      <ion-item>
+        <ion-label position="floating" color="primary"> Nombre y Apellido </ion-label>
+        <ion-input formControlName="cliNombreApellido" type="text" placeholder="Nombre y Apellido" required></ion-input>
+      </ion-item>
+      <div id="nameApellidoCotiErrorMessage" *ngIf="nuevaCotizacionForm.controls['cliNombreApellido'].invalid && (nuevaCotizacionForm.controls['cliNombreApellido'].dirty || nuevaCotizacionForm.controls['cliNombreApellido'].touched)">
+        <span class="error ion-padding" *ngIf="nuevaCotizacionForm.controls['cliNombreApellido'].errors.required"> Nombre y Apellido obligatorio </span>
+      </div>
+  
+      <ion-item>
+        <ion-label position="floating" color="primary"> Correo Electronico Empresa </ion-label>
+        <ion-input formControlName="clientCotiEmail" type="text" placeholder="Correo Electronico" required></ion-input>
+      </ion-item>
+      <div id="mailCotiErrorMessage" *ngIf="nuevaCotizacionForm.controls['clientCotiEmail'].invalid && (nuevaCotizacionForm.controls['clientCotiEmail'].dirty || nuevaCotizacionForm.controls['clientCotiEmail'].touched)">
+        <span class="error ion-padding" *ngIf="nuevaCotizacionForm.controls['clientCotiEmail'].errors.required"> Correo electronico obligatorio </span>
+        <span class="error ion-padding" *ngIf="nuevaCotizacionForm.controls['clientCotiEmail'].errors.pattern"> Formato incorrecto </span>
+      </div>
+
+      <ion-item>
+        <ion-label color="primary"> Fecha de inicio del proyecto </ion-label>
+        <ion-datetime formControlName="startDateCotizacion" displayFormat="DD MMM, YYYY" requiered></ion-datetime>
+      </ion-item>
+      <div id="startDateCotiErrorMessage" *ngIf="nuevaCotizacionForm.controls['startDateCotizacion'].invalid && (nuevaCotizacionForm.controls['startDateCotizacion'].dirty || nuevaCotizacionForm.controls['startDateCotizacion'].touched)">
+        <span class="error ion-padding" *ngIf="nuevaCotizacionForm.controls['startDateCotizacion'].errors.required"> La fecha es obligatoria </span>
+      </div>
+  
+      <ion-item>
+        <ion-label color="primary"> Fecha estimada de entrega </ion-label>
+        <ion-datetime formControlName="endDateCotizacion" displayFormat="DD  MMM, YYYY" requiered></ion-datetime>
+      </ion-item>
+      <div id="endDateCotiErrorMessage" *ngIf="nuevaCotizacionForm.controls['endDateCotizacion'].invalid && (nuevaCotizacionForm.controls['endDateCotizacion'].dirty || nuevaCotizacionForm.controls['endDateCotizacion'].touched)">
+        <span class="error ion-padding" *ngIf="nuevaCotizacionForm.controls['endDateCotizacion'].errors.required"> La fecha es obligatoria </span>
+      </div>
+  
+      <ion-item>
+        <ion-label color="primary"> Tipo de Servicio </ion-label>
+        <ion-select formControlName="tipoDeServicio" ok-text="Okay" cancel-text="Cancelar" placeholder="Selecionar" required>
+          <ion-select-option value="Diseño de logos">Diseño de logos</ion-select-option>
+          <ion-select-option value="Creación de marca">Creación de marca</ion-select-option>
+          <ion-select-option value="Diseño multimedia">Diseño multimedia</ion-select-option>
+          <ion-select-option value="Diseño publicitario">Diseño publicitario</ion-select-option>
+          <ion-select-option value="Diseño literario">Diseño literario</ion-select-option>
+          <ion-select-option value="Marketing digital">Marketing digital</ion-select-option>
+          <ion-select-option value="Diseño web">Diseño web</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <div id="tipoServicioErrorMessage" *ngIf="nuevaCotizacionForm.controls['tipoDeServicio'].invalid && (nuevaCotizacionForm.controls['tipoDeServicio'].dirty || nuevaCotizacionForm.controls['tipoDeServicio'].touched)">
+        <span class="error ion-padding" *ngIf="nuevaCotizacionForm.controls['tipoDeServicio'].errors.required"> El tipo de servicio es obligatoria </span>
+      </div>
+
+      <ion-item>
+        <ion-label position="floating" color="primary"> Descripción </ion-label>
+        <ion-textarea formControlName="txtAreaDescriptionCotizacion" placeholder="Describe tus necesidades" required></ion-textarea>
+      </ion-item>
+      <div id="descriptionCotiErrorMessage" *ngIf="nuevaCotizacionForm.controls['txtAreaDescriptionCotizacion'].invalid && (nuevaCotizacionForm.controls['txtAreaDescriptionCotizacion'].dirty || nuevaCotizacionForm.controls['txtAreaDescriptionCotizacion'].touched)">
+        <span class="error ion-padding" *ngIf="nuevaCotizacionForm.controls['txtAreaDescriptionCotizacion'].errors.required"> La descripción es obligatoria </span>
+      </div>
+    </ion-list>
+    <ion-grid class="ion-padding">
+      <ion-row>
+        <ion-col>
+          <ion-button expand="block" fill="outline" color="primary" shape="round" type="submit" (click)="crearNuevaCotizacion()" [disabled]="nuevaCotizacionForm.invalid"> Crear </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </form>
+</ion-content>

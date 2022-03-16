@@ -30,18 +30,6 @@ const routes: Routes = [
     loadChildren: () => import('./pages/contenido/mis-proyectos/proyectos.module').then( m => m.ProyectosPageModule)
   },
   {
-    path: 'new-project',
-    loadChildren: () => import('./pages/contenido/new-project/new-project.module').then( m => m.NewProjectPageModule)
-  },
-  {
-    path: 'nuevo-requerimiento',
-    loadChildren: () => import('./pages/contenido/nuevo-requerimiento/nuevo-requerimiento.module').then( m => m.NuevoRequerimientoPageModule)
-  },
-  {
-    path: 'mis-requerimientos',
-    loadChildren: () => import('./pages/contenido/mis-requerimientos/mis-requerimientos.module').then( m => m.MisRequerimientosPageModule)
-  },
-  {
     path: 'nueva-entrega',
     loadChildren: () => import('./pages/contenido/nueva-entrega/nueva-entrega.module').then( m => m.NuevaEntregaPageModule)
   },
@@ -56,9 +44,17 @@ const routes: Routes = [
   {
     path: 'table-reports',
     loadChildren: () => import('./pages/table-reports/table-routing.module').then( m => m.TableReportsRoutingModule)
-  },  {
+  },
+  {
     path: 'mis-cotizaciones',
     loadChildren: () => import('./pages/contenido/mis-cotizaciones/mis-cotizaciones.module').then( m => m.MisCotizacionesPageModule)
+  },
+  {
+    path: 'nueva-cotizacion',
+    loadChildren: () => import('./pages/contenido/nueva-cotizacion/nueva-cotizacion.module').then( m => m.NuevaCotizacionPageModule)
+  },  {
+    path: 'new-project',
+    loadChildren: () => import('./pages/contenido/new-project/new-project.module').then( m => m.NewProjectPageModule)
   }
 
 

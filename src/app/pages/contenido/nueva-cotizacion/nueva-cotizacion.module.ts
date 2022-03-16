@@ -1,21 +1,23 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 import { IonicModule } from '@ionic/angular';
 
-import { NuevoRequerimientoPageRoutingModule } from './nuevo-requerimiento-routing.module';
-import { NuevoRequerimientoPage } from './nuevo-requerimiento.page';
+import { NuevaCotizacionPageRoutingModule } from './nueva-cotizacion-routing.module';
+
+import { NuevaCotizacionPage } from './nueva-cotizacion.page';
 import { ComponentsModule } from 'src/app/components/components.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
-    ReactiveFormsModule,
     IonicModule,
-    NuevoRequerimientoPageRoutingModule,
+    ReactiveFormsModule,
+    NuevaCotizacionPageRoutingModule,
     ComponentsModule
   ],
-  declarations: [NuevoRequerimientoPage]
+  declarations: [NuevaCotizacionPage]
 })
-export class NuevoRequerimientoPageModule {}
+export class NuevaCotizacionPageModule {}

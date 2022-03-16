@@ -19,7 +19,7 @@ export class ProyectosPage implements OnInit {
       const projects = resp;
       const email = localStorage.getItem('userEmail');
       console.log('user', email);
-      this.projects = projects.filter(p => p.ownerMail == email);
+      this.projects = projects.filter(p => p.clientEmail == email);
       if (this.projects.length == 0) {
         Swal.fire({
           title: 'Sin proyectos',
