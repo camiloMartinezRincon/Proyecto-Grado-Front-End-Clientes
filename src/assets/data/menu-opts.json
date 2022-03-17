@@ -28,4 +28,10 @@
     "name": "Reportes",
     "redirectTo": "/table-reports"
   }
+  ,  
+  {
+    "icon": "bag-outline",
+    "name": "Catalogo de servicios",
+    "redirectTo": "/catalogo-servicios"
+  }
 ]

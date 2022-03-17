@@ -1,0 +1,43 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button menu="first">
+        <ion-icon name="grid"></ion-icon>
+      </ion-menu-button>
+    </ion-buttons>
+    <ion-title> Portafolio Servicios </ion-title>
+  </ion-toolbar>
+
+   <ion-toolbar color="primary">
+  <ion-button (click)="finalizar()">
+    <ion-icon slot="icon-only" name="person" color="primary"></ion-icon>
+  </ion-button>
+</ion-toolbar>
+
+</ion-header>
+<!--
+   <ion-toolbar color="primary">
+    <ion-searchbar placeholder="Tipo de Servicio" (ionChange)="onSearchChange($event)"></ion-searchbar>
+  </ion-toolbar>
+ -->
+
+<!--Ion cards -->
+<ion-content class="ion-padding">
+  <ion-list>
+    <ion-item *ngFor="let producto of this.productos">
+      <ion-card>
+        <ion-card-header>
+          <ion-card-title class="titulo-card" color="primary">{{producto.nombreServicio}}</ion-card-title>
+          <img src="{{producto.direccionRecurso}}">
+        </ion-card-header>
+        <ion-card-content>
+          <ion-label>{{producto.precioServicio}}</ion-label>
+          <p>{{producto.descripcionServicio}}</p>
+          <ion-button (click)="addProduct(producto)">
+            <ion-icon slot="icon-only" name="person" color="primary"></ion-icon>
+          </ion-button>
+        </ion-card-content>
+      </ion-card>
+    </ion-item>
+  </ion-list>
+</ion-content>

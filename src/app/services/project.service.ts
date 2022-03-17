@@ -100,4 +100,12 @@ getCotizaciones() {
 deleteCotizacion(id: number):Observable<void> {
   return this.http.delete<any>(`${this.endPoint}/cotizacion/delete/`+id);
 }
+//Get portfolio
+getProductos() {
+  return this.http.get<any>(this.endPoint + '/catalogo/servicios/info', this.httpOptions);
+}
+
+postCotizacionProductos(productosAcotizar: any): Observable<any> {
+  return this.http.post<any>(`${this.endPoint}/catalogo/servicios/info`, productosAcotizar);
+}
 }
