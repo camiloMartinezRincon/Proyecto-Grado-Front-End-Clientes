@@ -9,31 +9,28 @@ import Swal from 'sweetalert2';
 })
 export class CatalogoServiciosPage implements OnInit {
   productos: any [];
-  prodcutosagregados: [{}];
+  prodcutosagregados: any[] = [];
 
   constructor(public restService: ProjectService) { }
 
   ngOnInit() {
     this.restService.getProductos().subscribe((resp: any) => {
       this.productos = resp;
-
     });
   }
 
   addProduct(addedP:any){
     const emailCliente = localStorage.getItem('userEmail');
-    let product = {
-      nombreServicio:addedP.nombreServicio,
-      precioServicio:addedP.precioServicio,
-      descripcionServicio:addedP.descripcionServicio,
-      direccionRecurso:emailCliente,
-    }
-    this.prodcutosagregados.push(product);
+    addedP.user = emailCliente;
+    console.log(addedP)
+    this.prodcutosagregados.push(addedP);
+    console.log(this.prodcutosagregados)
   }
 
   finalizar(){
     this.restService.postCotizacionProductos(this.prodcutosagregados).subscribe((resp: any) => {
-      if(resp == "ENVIADO"){
+      if(resp == true){
+        this.prodcutosagregados = [];
         Swal.fire({
           title: 'Productos Agregados',
           text: 'Se verificará a información y en breve se realizará el envío de la cotización',

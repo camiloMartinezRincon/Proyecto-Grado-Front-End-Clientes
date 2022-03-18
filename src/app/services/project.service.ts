@@ -106,6 +106,6 @@ getProductos() {
 }
 
 postCotizacionProductos(productosAcotizar: any): Observable<any> {
-  return this.http.post<any>(`${this.endPoint}/catalogo/servicios/info`, productosAcotizar);
+  return this.http.post<any>(this.endPoint + '/portafolio/cotizacion', productosAcotizar);
 }
 }
